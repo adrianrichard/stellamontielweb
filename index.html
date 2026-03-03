@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stella Montiel - Cantante</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Stella Montiel</div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#biografia">Biografía</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#musica">Música</a></li>                
+                <li><a href="#libros">Libros</a></li>
+                <li><a href="#blog">Noticias</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sección Inicio/Hero -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Bienvenido</h1>
+            <p>Descubre mi música, historia y pasión</p>
+            <button class="btn btn-primary">Escucha Ahora</button>
+        </div>
+    </section>
+
+    <!-- Sección Biografía -->
+    <section id="biografia" class="section">
+        <div class="container">
+            <h2>Mi Historia</h2>
+            <div class="bio-content">
+                <img src="stella principal.jpg" alt="Foto de perfil" class="bio-image">
+                <div class="bio-text">
+                    <p>Hola, soy una cantante residente entrerriana en Rosario. Nacida en Paraná. </p>
+                    <p>He grabado 2 álbumes: Canto a mi Entre Ríos y Abrazo para el Alma. El tercero, Mi Canto Entrerriano, ya está en producción.</p>
+                    <p>Practico el Verso Libre. Mis poemas han sido publicados en diversas revistas.</p>
+                    <p>Tengo 4 libros de poemas: Permanencia, Fuente Inagotable, Nuestros Sentidos y El Ser.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Galería -->
+    <section id="galeria" class="section">
+        <div class="container">
+            <h2>Galería</h2>
+            <div class="carousel">
+                <div class="carousel-container">
+                    <div class="carousel-slide fade">
+                        <img src="stella principal 02.jpg" alt="Foto 1">
+                    </div>
+                    <div class="carousel-slide fade">
+                        <img src="Stella 02.jpeg" alt="Foto 2">
+                    </div>
+                    <div class="carousel-slide fade">
+                        <img src="06.png" alt="Foto 3">
+                    </div>
+                    <div class="carousel-slide fade">
+                        <img src="Stella 05.jpeg" alt="Foto 4">
+                    </div>
+                    <div class="carousel-slide fade">
+                        <img src="Stella 04.jpeg" alt="Foto 5">
+                    </div>
+                    <div class="carousel-slide fade">
+                        <img src="Stella 03.jpeg" alt="Foto 6">
+                    </div>
+                    
+                    <a class="carousel-btn prev" onclick="changeSlide(-1)">❮</a>
+                    <a class="carousel-btn next" onclick="changeSlide(1)">❯</a>
+                </div>
+                
+                <div class="carousel-dots">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                    <span class="dot" onclick="currentSlide(6)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Música -->
+    <section id="musica" class="section alt-bg">
+        <div class="container">
+            <h2>Mis Canciones</h2>
+            <div class="music-grid">
+                <div class="song-card">
+                    <div class="song-cover">🎵</div>
+                    <h3>VIEJA CANOITA</h3>
+                    <p>Nadie - 1975</p>
+                    <audio id="audio1" src="VIEJA CANOITA.mp3"></audio>
+                    <button class="btn btn-small" onclick="playAudio('audio1', this)">Escuchar</button>
+                </div>
+                <div class="song-card">
+                    <div class="song-cover">🎵</div>
+                    <h3>Canción 2</h3>
+                    <p>Artista - Año</p>
+                    <audio id="audio2" src="cancion2.mp3"></audio>
+                    <button class="btn btn-small" onclick="playAudio('audio2', this)">Escuchar</button>
+                </div>
+                <div class="song-card">
+                    <div class="song-cover">🎵</div>
+                    <h3>Canción 3</h3>
+                    <p>Artista - Año</p>
+                    <audio id="audio3" src="cancion3.mp3"></audio>
+                    <button class="btn btn-small" onclick="playAudio('audio3', this)">Escuchar</button>
+                </div>
+                <div class="song-card">
+                    <div class="song-cover">🎵</div>
+                    <h3>Canción 4</h3>
+                    <p>Artista - Año</p>
+                    <audio id="audio4" src="cancion4.mp3"></audio>
+                    <button class="btn btn-small" onclick="playAudio('audio4', this)">Escuchar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Libros -->
+    <section id="libros" class="section alt-bg">
+        <div class="container">
+            <h2>Mis Libros</h2>
+            <div class="books-grid">
+                <div class="book-card">
+                    <div class="book-cover">
+                        <img src="libro1.jpg" alt="Portada del libro">
+                    </div>
+                    <div class="book-info">
+                        <h4>Permanencia</h4>
+                        <p class="book-review">Publicado en el año 2000. Incluye ochenta y seis poemas, de neto corte artesanal.</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover">
+                        <img src="libro2.jpg" alt="Portada del libro">
+                    </div>
+                    <div class="book-info">
+                        <h4>Fuente Inagotable</h4>
+                        <p class="book-review">Publicado en el año 2003. Incluye cincuenta y ocho poemas.</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover">
+                        <img src="libro3.jpg" alt="Portada del libro">
+                    </div>
+                    <div class="book-info">
+                        <h4>Nuestros Sentidos</h4>
+                        <p class="book-review">Publicado en el año 2005. Incluye cincuenta y ocho poemas.</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <div class="book-cover">
+                        <img src="libro4.jpg" alt="Portada del libro">
+                    </div>
+                    <div class="book-info">
+                        <h4>El Ser</h4>
+                        <p class="book-review">Publicado en el año 2008. Incluye cuarenta y seis poemas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Noticias -->
+    <section id="blog" class="section">
+        <div class="container">
+            <h2>Noticias</h2>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <h3>Mi Nuevo Álbum</h3>
+                    <p class="blog-date">22 de Febrero, 2026</p>
+                    <p>Estoy emocionada de anunciar mi nuevo álbum que saldrá próximamente. Este proyecto representa mi crecimiento como artista...</p>
+                    <a href="#" class="read-more">Leer más →</a>
+                </article>
+                <article class="blog-card">
+                    <h3>Proceso Creativo</h3>
+                    <p class="blog-date">15 de Febrero, 2026</p>
+                    <p>Hoy quiero compartir con ustedes mi proceso creativo al escribir canciones. Todo comienza con una emoción...</p>
+                    <a href="#" class="read-more">Leer más →</a>
+                </article>
+                <article class="blog-card">
+                    <h3>Gira de Presentaciones</h3>
+                    <p class="blog-date">8 de Febrero, 2026</p>
+                    <p>Les cuento sobre mi experiencia en la gira de conciertos. Fue una experiencia increíble conocer a mis fans...</p>
+                    <a href="#" class="read-more">Leer más →</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="section alt-bg">
+        <div class="container">
+            <h2>Contacto</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Sígueme en Redes Sociales</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-btn"><i class="fab fa-instagram"></i> Instagram</a>
+                        <a href="#" class="social-btn"><i class="fab fa-facebook"></i> Facebook</a>
+                        <a href="#" class="social-btn"><i class="fab fa-youtube"></i> YouTube</a>
+                    </div>
+                    <div class="contact-details">
+                        <p><strong>Email:</strong> contacto@micantante.com</p>
+                        <p><strong>Teléfono:</strong> +34 123 456 789</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Mi Cantante. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
