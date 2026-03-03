@@ -101,7 +101,7 @@ body {
 
 /* Sección Hero */
 .hero {
-    background: var(--hero-image) center/cover no-repeat;
+    position: relative;
     color: red;
     padding: 100px 20px;
     text-align: center;
@@ -109,6 +109,18 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    /* keep content above overlay */
+    z-index: 1;
+}
+
+/* overlay for background image with adjustable opacity */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--hero-image) center/cover no-repeat;
+    opacity: 0.5; /* change this value for different opacity */
+    z-index: -1;
 }
 
 .hero-content h1 {
