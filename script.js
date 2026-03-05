@@ -151,3 +151,20 @@ document.querySelectorAll('.song-card, .blog-card, .gallery-item').forEach(el =>
     el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     observer.observe(el);
 });
+
+// Toggle CV completo
+document.addEventListener('DOMContentLoaded', function() {
+    const verMasBtn = document.getElementById('ver-mas-btn');
+    if (verMasBtn) {
+        verMasBtn.addEventListener('click', function() {
+            const cv = document.getElementById('cv-completo');
+            if (cv.style.display === 'none') {
+                cv.style.display = 'block';
+                this.textContent = 'Ver menos...';
+            } else {
+                cv.style.display = 'none';
+                this.textContent = 'Ver más...';
+            }
+        });
+    }
+});
