@@ -168,3 +168,43 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Elementos del modal de poemas
+const modal = document.getElementById('poemModal');
+const abrirBtn = document.getElementById('abrirPoemasBtn');
+const cerrarBtn = document.getElementById('closePoemModal');
+
+// Función para abrir el modal
+function abrirModal() {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // deshabilitar scroll
+}
+
+// Función para cerrar
+function cerrarModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = ''; // restaurar scroll
+}
+
+// Eventos
+if (abrirBtn) {
+    abrirBtn.addEventListener('click', abrirModal);
+}
+
+if (cerrarBtn) {
+    cerrarBtn.addEventListener('click', cerrarModal);
+}
+
+// Cerrar haciendo clic fuera del contenido (en el fondo del modal)
+modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+    cerrarModal();
+    }
+});
+
+// Cerrar con tecla ESC
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+    cerrarModal();
+    }
+});
