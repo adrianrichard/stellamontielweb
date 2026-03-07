@@ -46,13 +46,15 @@ if (hamburger) {
 }
 
 // Cerrar menú al hacer clic en un link
-const navItems = navLinks.querySelectorAll('a');
-navItems.forEach(item => {
-    item.addEventListener('click', function() {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
+if (navLinks) {
+    const navItems = navLinks.querySelectorAll('a');
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
     });
-});
+}
 
 // Variables para el carrusel
 let slideIndex = 1;
@@ -75,6 +77,8 @@ function showSlide(n) {
     const slides = document.getElementsByClassName('carousel-slide');
     const dots = document.getElementsByClassName('dot');
     
+    if (!slides.length) return;
+    
     if (n > slides.length) {
         slideIndex = 1;
     }
@@ -90,7 +94,9 @@ function showSlide(n) {
     }
     
     slides[slideIndex - 1].classList.add('active');
-    dots[slideIndex - 1].classList.add('active');
+    if (dots[slideIndex - 1]) {
+        dots[slideIndex - 1].classList.add('active');
+    }
 }
 
 // Navegación suave
@@ -110,10 +116,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Efecto de navBar al scrollear
 window.addEventListener('scroll', function () {
     const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
-    } else {
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+    if (navbar) {
+        if (window.scrollY > 50) {
+            navbar.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
+        } else {
+            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        }
     }
 });
 
@@ -152,59 +160,138 @@ document.querySelectorAll('.song-card, .blog-card, .gallery-item').forEach(el =>
     observer.observe(el);
 });
 
-// Toggle CV completo
+// ===== CÓDIGO DEL MODAL PARA 4 LIBROS =====
 document.addEventListener('DOMContentLoaded', function() {
+    // Toggle CV completo
     const verMasBtn = document.getElementById('ver-mas-btn');
     if (verMasBtn) {
         verMasBtn.addEventListener('click', function() {
             const cv = document.getElementById('cv-completo');
-            if (cv.style.display === 'none') {
-                cv.style.display = 'block';
-                this.textContent = 'Ver menos...';
-            } else {
-                cv.style.display = 'none';
-                this.textContent = 'Ver más...';
+            if (cv) {
+                if (cv.style.display === 'none' || cv.style.display === '') {
+                    cv.style.display = 'block';
+                    this.textContent = 'Ver menos...';
+                } else {
+                    cv.style.display = 'none';
+                    this.textContent = 'Ver más...';
+                }
             }
         });
     }
-});
 
-// Elementos del modal de poemas
-const modal = document.getElementById('poemModal');
-const abrirBtn = document.getElementById('abrirPoemasBtn');
-const cerrarBtn = document.getElementById('closePoemModal');
-
-// Función para abrir el modal
-function abrirModal() {
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // deshabilitar scroll
-}
-
-// Función para cerrar
-function cerrarModal() {
-    modal.classList.remove('active');
-    document.body.style.overflow = ''; // restaurar scroll
-}
-
-// Eventos
-if (abrirBtn) {
-    abrirBtn.addEventListener('click', abrirModal);
-}
-
-if (cerrarBtn) {
-    cerrarBtn.addEventListener('click', cerrarModal);
-}
-
-// Cerrar haciendo clic fuera del contenido (en el fondo del modal)
-modal.addEventListener('click', function(e) {
-    if (e.target === modal) {
-    cerrarModal();
+    // ===== MODAL DE POEMAS =====
+    const modal = document.getElementById('poemModal');
+    const closeBtn = document.getElementById('closePoemModal');
+    
+    if (!modal || !closeBtn) {
+        console.error('No se encontraron los elementos del modal');
+        return;
     }
-});
-
-// Cerrar con tecla ESC
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && modal.classList.contains('active')) {
-    cerrarModal();
+    
+    // Obtener los 4 botones
+    const btnLibro1 = document.getElementById('abrirPoemasBtn1'); // Permanencia
+    const btnLibro2 = document.getElementById('abrirPoemasBtn2'); // Fuente inagotable
+    const btnLibro3 = document.getElementById('abrirPoemasBtn3'); // Nuestros sentidos
+    const btnLibro4 = document.getElementById('abrirPoemasBtn4'); // El ser
+    
+    console.log('Botón Libro 1 (Permanencia):', btnLibro1);
+    console.log('Botón Libro 2 (Fuente):', btnLibro2);
+    console.log('Botón Libro 3 (Inagotable ser):', btnLibro3);
+    console.log('Botón Libro 4 (Sueños ajenos):', btnLibro4);
+    
+    // Función para abrir el modal con el libro correspondiente
+    function abrirModal(libroId) {
+        // Cambiar el título según el libro
+        const tituloModal = document.getElementById('modalTitle');
+        if (!tituloModal) return;
+        
+        // Ocultar todos los contenidos
+        const cont1 = document.getElementById('contenidoLibro1');
+        const cont2 = document.getElementById('contenidoLibro2');
+        const cont3 = document.getElementById('contenidoLibro3');
+        const cont4 = document.getElementById('contenidoLibro4');
+        
+        if (cont1) cont1.style.display = 'none';
+        if (cont2) cont2.style.display = 'none';
+        if (cont3) cont3.style.display = 'none';
+        if (cont4) cont4.style.display = 'none';
+        
+        // Mostrar el contenido correspondiente
+        switch(libroId) {
+            case 1:
+                tituloModal.innerHTML = 'Poemas de <em>Permanencia</em>';
+                if (cont1) cont1.style.display = 'block';
+                break;
+            case 2:
+                tituloModal.innerHTML = 'Poemas de <em>Fuente inagotable</em>';
+                if (cont2) cont2.style.display = 'block';
+                break;
+            case 3:
+                tituloModal.innerHTML = 'Poemas de <em>Inagotable ser</em>';
+                if (cont3) cont3.style.display = 'block';
+                break;
+            case 4:
+                tituloModal.innerHTML = 'Poemas de <em>Sueños ajenos</em>';
+                if (cont4) cont4.style.display = 'block';
+                break;
+        }
+        
+        // Mostrar el modal
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
     }
+    
+    // Asignar eventos a los botones
+    if (btnLibro1) {
+        btnLibro1.addEventListener('click', function(e) {
+            e.preventDefault();
+            abrirModal(1);
+        });
+    }
+    
+    if (btnLibro2) {
+        btnLibro2.addEventListener('click', function(e) {
+            e.preventDefault();
+            abrirModal(2);
+        });
+    }
+    
+    if (btnLibro3) {
+        btnLibro3.addEventListener('click', function(e) {
+            e.preventDefault();
+            abrirModal(3);
+        });
+    }
+    
+    if (btnLibro4) {
+        btnLibro4.addEventListener('click', function(e) {
+            e.preventDefault();
+            abrirModal(4);
+        });
+    }
+    
+    // Función para cerrar el modal
+    function cerrarModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    // Cerrar con el botón X
+    if (closeBtn) {
+        closeBtn.addEventListener('click', cerrarModal);
+    }
+    
+    // Cerrar haciendo clic fuera del modal
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            cerrarModal();
+        }
+    });
+    
+    // Cerrar con tecla ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            cerrarModal();
+        }
+    });
 });

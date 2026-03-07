@@ -84,6 +84,9 @@
                     <div class="carousel-slide fade">
                         <img src="Stella 03.jpeg" alt="Foto 6">
                     </div>
+                    <div class="carousel-slide fade">
+                        <img src="presentacionlibro01.jpeg" alt="Foto 7">
+                    </div>
                     
                     <a class="carousel-btn prev" onclick="changeSlide(-1)">❮</a>
                     <a class="carousel-btn next" onclick="changeSlide(1)">❯</a>
@@ -96,6 +99,7 @@
                     <span class="dot" onclick="currentSlide(4)"></span>
                     <span class="dot" onclick="currentSlide(5)"></span>
                     <span class="dot" onclick="currentSlide(6)"></span>
+                    <span class="dot" onclick="currentSlide(7)"></span>
                 </div>
             </div>
         </div>
@@ -145,12 +149,12 @@
             <div class="books-grid">
                 <div class="book-card">
                     <div class="book-cover">
-                        <img src="libro1.jpg" alt="Portada del libro">
+                        <img src="permanencia portada.jpeg" alt="Portada del libro">
                     </div>
                     <div class="book-info">
                         <h4>Permanencia</h4>
-                        <p class="book-review">Publicado en el año 2000. Incluye ochenta y seis poemas, de neto corte artesanal.</p>
-                        <button class="btn btn-primary" id="abrirPoemasBtn">Leer poemas</button>
+                        <p class="book-review">Publicado en el año 2000. Incluye ochenta y seis poemas, de neto corte artesanal.</p><br>
+                        <button class="btn btn-primary" id="abrirPoemasBtn1">Leer poemas</button>
                     </div>
                 </div>
                 <div class="book-card">
@@ -159,25 +163,28 @@
                     </div>
                     <div class="book-info">
                         <h4>Fuente inagotable</h4>
-                        <p class="book-review">Publicado en el año 2003. Incluye cincuenta y ocho poemas.</p>
+                        <p class="book-review">Publicado en el año 2003. Incluye cincuenta y ocho poemas.</p><br>
+                        <button class="btn btn-primary" id="abrirPoemasBtn2">Leer poemas</button>
                     </div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover">
-                        <img src="libro3.jpg" alt="Portada del libro">
+                        <img src="inagotable ser portada.jpg" alt="Portada del libro">
                     </div>
                     <div class="book-info">
-                        <h4>Nuestros sentidos</h4>
-                        <p class="book-review">Publicado en el año 2005. Incluye cincuenta y ocho poemas.</p>
+                        <h4>Inagotable ser</h4>
+                        <p class="book-review">Publicado en el año 2005. Conjunción de tres libros: El ser, nuestros sentidos y fuente inagotable.</p><br>
+                        <button class="btn btn-primary" id="abrirPoemasBtn3">Leer poemas</button>
                     </div>
                 </div>
                 <div class="book-card">
                     <div class="book-cover">
-                        <img src="libro4.jpg" alt="Portada del libro">
+                        <img src="sueños ajenos portada.jpg" alt="Portada del libro">
                     </div>
                     <div class="book-info">
-                        <h4>El ser</h4>
-                        <p class="book-review">Publicado en el año 2008. Incluye cuarenta y seis poemas.</p>
+                        <h4>Sueños ajenos</h4>
+                        <p class="book-review">Publicado en el año 2008. Incluye trecientos poemas. Sólo en formato digital</p><br>
+                        <button class="btn btn-primary" id="abrirPoemasBtn4">Leer poemas</button>
                     </div>
                 </div>
             </div>
@@ -232,39 +239,43 @@
         </div>
     </section>
 
+<!-- MODAL con contenido para ambos libros -->
 <div class="poem-modal" id="poemModal">
     <div class="poem-content">
         <span class="poem-close" id="closePoemModal">&times;</span>
-            
-        <div class="poem-title">Poemas de <em>Permanencia</em></div>
-            
+
+        <!-- Título dinámico -->
+        <div class="poem-title" id="modalTitle">Poemas de <em>Permanencia</em></div>
+
+        <!-- CONTENIDO PARA LIBRO 1: PERMANENCIA -->
+        <div id="contenidoLibro1">
             <div class="poem-subtitle">Permanencia</div>
-                <div class="poem-text">
-                    Tal vez un día mires a los que<br>
-                    juntan basura y cartones para subsistir<br>
-                    y ese día. serás ciego.<br>
-                    <br>
-                    Tal vez escuches un día<br>
-                    el llanto de un niño abandonado<br>
-                    y el grito de los que piden ayuda<br>
-                    y ese dia, serás sordo.<br>
-                    <br>
-                    Tal vez un dia preguntes porqué<br>
-                    la protesta del obrero y de los que exigen justicia<br>
-                    y ese dia, serás mudo.<br>
-                    <br>
-                    Por más que muchos permanezcan ciegos, sordos y mudos,<br>
-                    es esta nuestra realidad de hoy,<br>
-                    y la de muchos latinoamericanos.<br>
-                    <br>
-                    Me gustaría despertar un dia<br>
-                    y saber que esta realidad es solamente un sueño,<br>
-                    lástima que a veces los sueños viajen por una cruel realidad.
-                </div>            
-            
+            <div class="poem-text">
+                Tal vez un día mires a los que<br>
+                juntan basura y cartones para subsistir<br>
+                y ese día. serás ciego.<br>
+                <br>
+                Tal vez escuches un día<br>
+                el llanto de un niño abandonado<br>
+                y el grito de los que piden ayuda<br>
+                y ese dia, serás sordo.<br>
+                <br>
+                Tal vez un dia preguntes porqué<br>
+                la protesta del obrero y de los que exigen justicia<br>
+                y ese dia, serás mudo.<br>
+                <br>
+                Por más que muchos permanezcan ciegos, sordos y mudos,<br>
+                es esta nuestra realidad de hoy,<br>
+                y la de muchos latinoamericanos.<br>
+                <br>
+                Me gustaría despertar un dia<br>
+                y saber que esta realidad es solamente un sueño,<br>
+                lástima que a veces los sueños viajen por una cruel realidad.
+            </div>
+
             <div class="poem-divider"></div>
 
-            <div class="poem-subtitle">DOÑA INÉS</div>
+            <div class="poem-subtitle">Doña Inés</div>
             <div class="poem-text">
                 Me parece verte con tu gorro blanco<br>
                 siempre en la cocina, tus manos tejían<br>
@@ -290,8 +301,135 @@
                 con poder cantarte algunas quimeras.
             </div>
         </div>
+
+        <!-- CONTENIDO PARA LIBRO 2: FUENTE INAGOTABLE -->
+        <div id="contenidoLibro2" style="display: none;">
+            <div class="poem-subtitle">Fuente inagotable - Poema 1</div>
+            <div class="poem-text">
+                Agrega aquí el primer poema<br>
+                del libro Fuente inagotable<br>
+                (Reemplaza con el texto real)
+            </div>
+
+            <div class="poem-divider"></div>
+
+            <div class="poem-subtitle">Fuente inagotable - Poema 2</div>
+            <div class="poem-text">
+                Agrega aquí el segundo poema<br>
+                del libro Fuente inagotable
+            </div>
+        </div>
+
+        <!-- CONTENIDO PARA LIBRO 3: Inagotable ser -->
+        <div id="contenidoLibro3" style="display: none;">
+            <div class="poem-subtitle">Inagotable ser</div>
+            <div class="poem-text">
+                Sin manuales nos abrimos a la vida<br>
+                la aceptamos, como un regalo divino<br>
+                con el pasar de los años nos damos cuenta<br>
+                de nuestro rol dentro del planeta<br>
+                y de todo lo que uno puede aportar.<br>
+                <br>
+                Transformar ese ser que fue al inicio<br>
+                es la tarea diaria para crecer<br>
+                es la consigna diaria para seguir y seguir.<br>
+                Los amores y desamores, los encuentros y desencuentros<br>
+                los malos entendidos sin culpas<br>
+                o tal vez con ella es lo que nos conduce<br>
+                a recorrer este desafío que es vivir<br>
+                <br>
+                Nuestro ser se convierte, se pule día a día<br>
+                y se transforma en inagotable.<br>
+                <br>
+                Inagotable ser, eso somos<br>
+                no nos damos cuenta que somos héroes<br>
+                que salimos a la vida sin saber a veces<br>
+                con qué nos encontraremos de camino.<br>
+                <br>
+                Inagotable ser, eso soy, como cada uno<br>
+                de los que salen desafiantes a estrujar la vida<br>
+                sin saber lo que les depara el destino.<br>
+                <br>
+                Inagotable ser, ser inagotable<br>
+                esa es la meta, no parar, sabiendo<br>
+                que la vida es tan solo eso y reconocer<br>
+                que somos terrenales y que estamos de paso.<br>
+                <br>
+                Inagotable ser, no te rindas nunca!!!
+            </div>
+            <div class="poem-divider"></div>
+
+            <div class="poem-subtitle">Rosario</div>
+            <div class="poem-text">
+                Rosario tiene vida,<br>
+                Rosario tiene amor<br>
+                Rosario con su gente<br>
+                Rosario es fervor.<br>
+                <br>
+                Rosario con sus noches<br>
+                de bares y de alcohol,<br>
+                Rosario es imponente<br>
+                con jazz y rock and roll.<br>
+                <br>
+                Rosario con sus luces,<br>
+                con humo y diversión,<br>
+                Rosario no imagina<br>
+                te ofrece el corazón.<br>
+                <br>
+                Y allí va Rosario,<br>
+                de utopías sin dolor,<br>
+                si en la cancha<br>
+                hinchando a muerte<br>
+                ya se odian por un gol.<br>
+                <br>
+                Y allí va Rosario<br>
+                con los grandes del humor,<br>
+                si el artista sobrevive<br>
+                con la "trova" que estalló.<br>
+                <br>
+                Y allí va Rosario<br>
+                gambeteándole al amor<br>
+                si el romance va con verso<br>
+                rosarino y es mejor.<br>
+                <br>
+                Y allí va Rosario,<br>
+                regalando su esplendor<br>
+                <br>
+                Rosario tiene todo<br>
+                para poder ser mejor<br>
+                apostando hacia el futuro<br>
+                y luchando con valor.<br>
+                <br>
+                Rosario tiene magia,<br>
+                leproso y canallón<br>
+                se unen y se abrazan<br>
+                si nuestra Argentina ganó.<br>
+                <br>
+                Rosario con historia<br>
+                saluda al exterior,<br>
+                sembremos la esperanza<br>
+                con trabajo y con amor!
+            </div>
+        </div>
+
+        <!-- CONTENIDO PARA LIBRO 4: Sueños ajenos -->
+        <div id="contenidoLibro4" style="display: none;">
+            <div class="poem-subtitle">Sueños ajenos - Poema 1</div>
+            <div class="poem-text">
+                Aquí van los poemas de Sueños ajenos<br>
+                (Reemplaza con el texto real)
+            </div>
+
+            <div class="poem-divider"></div>
+
+            <div class="poem-subtitle">Sueños ajenos - Poema 2</div>
+            <div class="poem-text">
+                Segundo poema de Sueños ajenos
+            </div>
+        </div>
     </div>
-</div>        
+</div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
