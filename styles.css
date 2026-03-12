@@ -265,6 +265,7 @@ body {
     background-color: #000;
     border-radius: var(--border-radius);
     overflow: hidden;
+    aspect-ratio: 16/9; /* ← AGREGAR para responsive */
 }
 
 .carousel-slide {
@@ -704,7 +705,7 @@ body {
     animation: popupAppear 0.5s ease-out;
     transform-origin: center;
 }
- .popup-image {
+.popup-image {
       width: 100%;
       height: 500px;
       object-fit: cover;
@@ -887,7 +888,7 @@ body {
         padding: 12px; /* Botones más pequeños */
         font-size: 16px;
     }
-
+}
 @media (max-width: 480px) {
     .carousel-container {
         aspect-ratio: 1/1; /* Cuadrado para móviles */
@@ -905,6 +906,4 @@ body {
     .next {
         right: 5px;
     }
-}
-
 }
