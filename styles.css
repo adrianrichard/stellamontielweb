@@ -860,11 +860,10 @@ body {
         margin: 0 3px;
     }
 
-   .popup-image {
-    width: 100%;      /* Ocupa todo el ancho */
-    height: 400px;    /* Altura fija */
-    object-fit: cover; /* Recorta si es necesario para llenar */
-    display: block;
+    .popup-image {
+        width: 100%;      /* Ocupa todo el ancho */
+        height: auto;     /* Altura automática proporcional */
+        display: block;
     }
     
     .popup-content {
@@ -911,3 +910,4 @@ body {
     }
 
 }
+
