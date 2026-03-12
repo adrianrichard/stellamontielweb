@@ -860,8 +860,11 @@ body {
         margin: 0 3px;
     }
 
-    .popup-image {
-        height: 400px;
+   .popup-image {
+    width: 100%;      /* Ocupa todo el ancho */
+    height: 400px;    /* Altura fija */
+    object-fit: cover; /* Recorta si es necesario para llenar */
+    display: block;
     }
     
     .popup-content {
@@ -906,4 +909,5 @@ body {
     .next {
         right: 5px;
     }
+
 }
