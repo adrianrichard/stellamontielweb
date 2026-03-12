@@ -295,3 +295,67 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// ===== POPUP PUBLICITARIO (FUERA DEL DOMContentLoaded) =====
+// Obtener referencia al overlay del popup
+const popupOverlay = document.getElementById('popupOverlay');
+
+// Función para cerrar el popup (definida globalmente)
+function cerrarPopup() {
+    if (popupOverlay) {
+        popupOverlay.classList.add('hidden');
+        // Opcional: guardar en localStorage para que no vuelva a aparecer en la misma sesión
+        // localStorage.setItem('popupCerrado', 'true');
+    }
+}
+
+// Asegurarse de que el DOM esté cargado antes de asignar eventos
+document.addEventListener('DOMContentLoaded', function() {
+    if (!popupOverlay) {
+        console.error('No se encontró el elemento popupOverlay');
+        return;
+    }
+    
+    // Obtener el botón de cerrar específico del popup si existe
+    const closePopupBtn = document.getElementById('closePopupBtn');
+    if (closePopupBtn) {
+        closePopupBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            cerrarPopup();
+        });
+    }
+    
+    // Cerrar popup si se hace clic fuera del card (en el fondo oscuro)
+    popupOverlay.addEventListener('click', function(event) {
+        // Si el clic fue directamente en el overlay (fondo oscuro) y no en su contenido
+        if (event.target === popupOverlay) {
+            cerrarPopup();
+        }
+    });
+
+    // Prevenir que el popup se cierre al hacer clic dentro del card
+    const popupCard = document.querySelector('.popup-card');
+    if (popupCard) {
+        popupCard.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+    }
+
+    // Mostrar popup automáticamente al cargar la página
+    // Opcional: verificar si ya fue cerrado antes en esta sesión
+    // if (!localStorage.getItem('popupCerrado')) {
+    //     popupOverlay.classList.remove('hidden');
+    // }
+    
+    // Pequeño retraso para que aparezca después de cargar todo (efecto más suave)
+    setTimeout(() => {
+        popupOverlay.classList.remove('hidden');
+    }, 500);
+});
+
+// También se puede cerrar con la tecla ESC (esto funciona globalmente)
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && popupOverlay && !popupOverlay.classList.contains('hidden')) {
+        cerrarPopup();
+    }
+});
