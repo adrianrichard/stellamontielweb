@@ -34,7 +34,7 @@
         <div class="hero-content">
             <h1>Bienvenido</h1>
             <p>Descubre mi historia, mis versos, mi música y mi pasión</p>
-            <a href="#biografia" class="btn btn-primary">Empecemos</a>
+            <a href="#biografia" class="btn btn-primary">EMPECEMOS</a>
         </div>
     </section>
 
@@ -119,21 +119,21 @@
                 </div>
                 <div class="song-card">
                     <div class="song-cover">🎵</div>
-                    <h3>A Jorge Mendez</h3>
+                    <h3>Canto por Jorge Mendez</h3>
                     <p>1995</p>
                     <audio id="audio2" src="a jorge mendez.mp3"></audio>
                     <button class="btn btn-small" onclick="playAudio('audio2', this)">Escuchar</button>
                 </div>
                 <div class="song-card">
                     <div class="song-cover">🎵</div>
-                    <h3>A doña Ines Bustamante</h3>
+                    <h3>Por doña Ines Bustamante</h3>
                     <p>1993</p>
                     <audio id="audio3" src="A dona Ines Bustamante.mp3"></audio>
                     <button class="btn btn-small" onclick="playAudio('audio3', this)">Escuchar</button>
                 </div>
                 <div class="song-card">
                     <div class="song-cover">🎵</div>
-                    <h3>Mi Canto Entrerriano</h3>
+                    <h3>Mi canto entrerriano</h3>
                     <p>1990</p>
                     <audio id="audio4" src="mi canto entrerriano.mp3"></audio>
                     <button class="btn btn-small" onclick="playAudio('audio4', this)">Escuchar</button>
@@ -191,40 +191,25 @@
         </div>
     </section>
 
-    <!-- Sección Noticias -->
+    <!-- Sección Noticias con Carrusel -->
     <section id="blog" class="section">
         <div class="container">
             <h2>Noticias</h2>
-            <div class="blog-grid">
-                <article class="blog-card">
-                    <h3>Mi Nuevo Álbum</h3>
-                    <p class="blog-date">22 de Febrero, 2026</p>
-                    <p>Estoy emocionada de anunciar mi nuevo álbum que saldrá próximamente. Este proyecto representa mi crecimiento como artista...</p>
-                    <a href="#" class="read-more">Leer más →</a>
-                </article>
-                <article class="blog-card">
-                    <h3>Radio Diputados</h3>
-                    <p class="blog-date">17 de Mayo, 2024</p>
-                    <p>Entrevista en Radio Diputados sobre la presentación del libro Permanencia</p>
-                    <a href="https://creators.spotify.com/pod/profile/radio-diputados/embed/episodes/Stella-Montiel-presenta-su-libro-Permanencia-e2jpemv/a-ab9bgcm" 
-                    class="read-more" 
-                    target="_blank" 
-                    rel="noopener noreferrer">
-                    Ir a la entrevista →
-                    </a>
-                </article>
-                <article class="blog-card">
-                    <h3>X Congreso de Escritores Latinoamericanos</h3>
-                    <p class="blog-date">18 de Agosto, 2025</p>                    
-                    <p>a poeta y cantautora Stella Montiel participará del congreso con la presentación de su obra “Inagotable Ser”.</p>
-                    <a href="https://www.instagram.com/p/DQuXVJzD1DJ/" 
-                    class="read-more" 
-                    target="_blank" 
-                    rel="noopener noreferrer">
-                    Ir a la cultura viva→
-                    </a>
-                </article>
+            
+            <!-- Contenedor del carrusel -->
+            <div class="blog-carousel" id="blogCarousel">
+                <!-- Flecha izquierda -->
+                <div class="carousel-arrow left" onclick="moveSlide(-1)">❮</div>
+                
+                <!-- Grid de noticias (se llenará dinámicamente desde noticias.js) -->
+                <div class="blog-grid" id="blogGrid"></div>
+                
+                <!-- Flecha derecha -->
+                <div class="carousel-arrow right" onclick="moveSlide(1)">❯</div>
             </div>
+            
+            <!-- Dots de navegación -->
+            <div class="carousel-dots" id="carouselDots"></div>
         </div>
     </section>
 
@@ -234,7 +219,7 @@
             <h2>Contacto</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Sígueme en Redes Sociales</h3>
+                    <h3>Sígueme en redes sociales</h3>
                     <div class="social-links">
                         <a href="https://www.instagram.com/la_montielera/"
                         class="social-btn"
@@ -251,6 +236,11 @@
                         target="_blank"
                         rel="noopener noreferrer">
                         <i class="fab fa-youtube"></i> YouTube</a>
+                        <a href="https://open.spotify.com/artist/054qAPfyDg6EH7el3K4DLk?si=W5RNZ4G6SbC9FvRPfAS5gA"
+                        class="social-btn spotify-btn"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <i class="fab fa-spotify"></i> Spotify</a>
                     </div>
                     <!-- <div class="contact-details">
                         <p><strong>Email:</strong> contacto@micantante.com</p>
@@ -475,5 +465,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="noticias.js"></script>
 </body>
 </html>
