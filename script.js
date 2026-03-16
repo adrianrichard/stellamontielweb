@@ -28,10 +28,10 @@ function playAudio(audioId, button) {
     }
     
     // Restablecer el botón cuando termine la canción
-    audio.addEventListener('ended', function() {
+    audio.onended = function() {
         button.textContent = 'Escuchar';
         button.classList.remove('playing');
-    });
+    };
 }
 
 // Menú Hamburguesa
@@ -50,7 +50,7 @@ if (navLinks) {
     const navItems = navLinks.querySelectorAll('a');
     navItems.forEach(item => {
         item.addEventListener('click', function() {
-            hamburger.classList.remove('active');
+            if (hamburger) hamburger.classList.remove('active');
             navLinks.classList.remove('active');
         });
     });
@@ -298,10 +298,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== POPUP PUBLICITARIO (FUERA DEL DOMContentLoaded) =====
 // Obtener referencia al overlay del popup
-const popupOverlay = document.getElementById('popupOverlay');
 
 // Función para cerrar el popup (definida globalmente)
 function cerrarPopup() {
+    const popupOverlay = document.getElementById('popupOverlay');
     if (popupOverlay) {
         popupOverlay.classList.add('hidden');
         // Opcional: guardar en localStorage para que no vuelva a aparecer en la misma sesión
@@ -311,6 +311,7 @@ function cerrarPopup() {
 
 // Asegurarse de que el DOM esté cargado antes de asignar eventos
 document.addEventListener('DOMContentLoaded', function() {
+    const popupOverlay = document.getElementById('popupOverlay');
     if (!popupOverlay) {
         console.error('No se encontró el elemento popupOverlay');
         return;
@@ -355,6 +356,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // También se puede cerrar con la tecla ESC (esto funciona globalmente)
 document.addEventListener('keydown', function(event) {
+    const popupOverlay = document.getElementById('popupOverlay');
     if (event.key === 'Escape' && popupOverlay && !popupOverlay.classList.contains('hidden')) {
         cerrarPopup();
     }

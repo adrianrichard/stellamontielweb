@@ -67,6 +67,7 @@ function renderizarNoticias() {
     
     // Limpiar el contenedor
     blogGrid.innerHTML = '';
+    let htmlContent = '';
     
     // Generar HTML para cada noticia
     noticiasDB.forEach(noticia => {
@@ -83,8 +84,9 @@ function renderizarNoticias() {
             </article>
         `;
         
-        blogGrid.innerHTML += noticiaHTML;
+        htmlContent += noticiaHTML;
     });
+    blogGrid.innerHTML = htmlContent;
     
     // Actualizar variables después de renderizar
     blogCards = document.querySelectorAll('.blog-card');
