@@ -15,7 +15,7 @@
     --celeste: #60c0dd;
     --border-radius: 8px;
     --transition: 0.3s ease;
-    --hero-image: url('Stella 012.png');
+    --hero-image: url('logo SM.jpg');
 }
 
 body {
@@ -120,7 +120,7 @@ body {
     position: absolute;
     inset: 0;
     background: var(--hero-image) center/cover no-repeat;
-    opacity: 0.5; /* change this value for different opacity */
+    opacity: 0.90; /* change this value for different opacity */
     z-index: -1;
 }
 
